@@ -4,7 +4,7 @@ python_virtualenv node["setupvenv"]["dir"] do
   action :create
 end
 
-template "#{node[:setupvenv][:dir]}/.bash_profile" do
+template "/home/#{node[:setupvenv][:user]}/.bash_profile" do
   source "bash_profile.erb"
   owner node["setupvenv"]["user"]
   group node["setupvenv"]["group"]
